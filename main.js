@@ -17,6 +17,14 @@ app.use(flash())
 
 var penguin = require('penguin')
 var admin = new penguin.Admin({
+  indexTitle: 'بسطة كتب',
+  menuExtraHTML: `
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a href="http://www.etabits.com/">etabits.com</a>
+      </li>
+    </ul>
+  `,
   menu: [
     ['Home', '/admin'],
     ['Related Data - بيانات أوّلية', [
