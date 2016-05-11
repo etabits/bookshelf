@@ -1,5 +1,7 @@
 'use strict';
 
+var path = require('path')
+
 var express = require('express')
 var mongoose = require('mongoose')
 require('coffee-script/register')
@@ -7,13 +9,20 @@ require('coffee-script/register')
 mongoose.connect('mongodb://localhost/bookshelf')
 
 var app = express()
+var developmentMode = app.get('env') == 'development'
 
+// Flash messages
 var cookieParser = require('cookie-parser')
 var session      = require('express-session')
 var flash = require('connect-flash')
 app.use(cookieParser(Math.random()+''))
 app.use(session({ cookie: { maxAge: 60000 }}))
 app.use(flash())
+
+// Assets
+if (developmentMode) {
+  app.use(express.static(path.join(__dirname, 'public')))
+}
 
 var penguin = require('penguin')
 var admin = new penguin.Admin({
@@ -36,6 +45,7 @@ var admin = new penguin.Admin({
     ['Books - الكتب', '/admin/books'],
   ]
 })
+admin.resLocals.statics.css.push('/style.css')
 admin.setupApp(app)
 
 var port = process.env.PORT || 3000
