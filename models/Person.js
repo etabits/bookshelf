@@ -6,6 +6,7 @@ var schema = mongoose.Schema({
   lastName: String,
   altName: String,
   birthdate: Date,
+  needsRevision: Boolean,
 })
 schema.virtual('$pTitle').get(function () {
   return `${this.firstName} ${this.lastName}`;

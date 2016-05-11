@@ -12,6 +12,10 @@ var schema = mongoose.Schema({
   pages: Number,
   keywords: String,
   donor: {type: mongoose.Schema.Types.ObjectId, ref: 'Donor', $p: {widget: 'select'}},
+  returnToDonor: Boolean,
+  needsRevision: Boolean,
+  notes: {type: String, $p: {widget: 'textarea'}},
+  extraData: {type: String, $p: {widget: 'textarea'}},
 })
 
 var Model = mongoose.model('Book', schema)
