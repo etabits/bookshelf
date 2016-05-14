@@ -20,14 +20,14 @@ var schema = mongoose.Schema({
   series: {type: mongoose.Schema.Types.ObjectId, ref: 'Series', $p: {widget: 'select'}},
   number: Number,
   publicationYear: Number,
-  translator: {type: mongoose.Schema.Types.ObjectId, ref: 'Person', $p: {widget: 'select'}},
+  translator: {type: mongoose.Schema.Types.ObjectId, ref: 'Person', $p: {widget: 'select', display: 'e'}},
   pages: Number,
-  keywords: String,
-  donor: {type: mongoose.Schema.Types.ObjectId, ref: 'Donor', $p: {widget: 'select'}},
-  returnToDonor: Boolean,
+  keywords: {type: String, $p: {display: 'e'}},
+  donor: {type: mongoose.Schema.Types.ObjectId, ref: 'Donor', $p: {widget: 'select', display: 'e'}},
+  returnToDonor: {type: Boolean, $p: {display: 'e'}},
   needsRevision: Boolean,
-  notes: {type: String, $p: {widget: 'textarea'}},
-  extraData: {type: String, $p: {widget: 'textarea'}},
+  notes: {type: String, $p: {widget: 'textarea', display: 'e'}},
+  extraData: {type: String, $p: {widget: 'textarea', display: 'e'}},
 })
 
 var Model = mongoose.model('Book', schema)
