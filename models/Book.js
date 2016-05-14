@@ -7,6 +7,8 @@ var schema = mongoose.Schema({
   author: {type: mongoose.Schema.Types.ObjectId, ref: 'Person', $p: {widget: 'select'}},
   category: {type: mongoose.Schema.Types.ObjectId, ref: 'Category', $p: {widget: 'select'}},
   publisher: {type: mongoose.Schema.Types.ObjectId, ref: 'Publisher', $p: {widget: 'select'}},
+  series: {type: mongoose.Schema.Types.ObjectId, ref: 'Series', $p: {widget: 'select'}},
+  number: Number,
   publicationYear: Number,
   translator: {type: mongoose.Schema.Types.ObjectId, ref: 'Person', $p: {widget: 'select'}},
   pages: Number,
