@@ -40,6 +40,7 @@ var admin = new penguin.Admin({
       ['Categories - تصنيفات', '/admin/categories'],
       ['People (Authors/Translators...) - أشخاص', '/admin/people'],
       ['Publishers - دور النشر', '/admin/publishers'],
+      ['Series - سلاسل الكتب', '/admin/series'],
       ['Donors - المتبرعين', '/admin/donors'],
     ]],
     ['Books - الكتب', '/admin/books'],
