@@ -47,6 +47,7 @@ var admin = new penguin.Admin({
   ]
 })
 admin.resLocals.statics.css.push('/style.css')
+admin.resLocals.statics.js.push('/script.js')
 admin.setupApp(app)
 
 var port = process.env.PORT || 3000
